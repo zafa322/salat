@@ -14,6 +14,8 @@
     --error: #dc3545;
     --islamic-green: #006633;
     --islamic-gold: #d4af37;
+    --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    --gradient-islamic: linear-gradient(135deg, var(--islamic-green), #228B22);
 }
 
 [data-theme="dark"] {
@@ -57,7 +59,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    background: var(--gradient-primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -115,6 +117,7 @@ body {
     padding: 0.5rem 0;
     z-index: 1000;
     backdrop-filter: blur(10px);
+    box-shadow: 0 -2px 10px var(--shadow);
 }
 
 .nav-item {
@@ -163,6 +166,7 @@ body {
 
 .page.active {
     display: block;
+    animation: fadeIn 0.3s ease;
 }
 
 .page-header {
@@ -225,6 +229,55 @@ body {
     margin: 0 auto;
 }
 
+/* Welcome Section */
+.welcome-section {
+    margin-bottom: 2rem;
+}
+
+.welcome-card {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 20px var(--shadow);
+}
+
+.welcome-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.welcome-card p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.welcome-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--islamic-gold);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
 /* Cards */
 .card {
     background: var(--surface);
@@ -260,16 +313,42 @@ body {
     color: var(--primary-color);
 }
 
+/* Location Info */
+.location-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.change-location-btn {
+    background: none;
+    border: 1px solid var(--border);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.change-location-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
 /* Prayer Times */
 .prayer-times-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 1rem;
     margin-bottom: 1rem;
 }
 
 .prayer-time-item {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     padding: 1rem;
     background: var(--background);
     border-radius: 0.5rem;
@@ -280,12 +359,36 @@ body {
 .prayer-time-item:hover {
     background: var(--primary-color);
     color: white;
+    transform: translateY(-2px);
+}
+
+.prayer-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.prayer-time-item:hover .prayer-icon {
+    background: white;
+    color: var(--primary-color);
+}
+
+.prayer-info {
+    flex: 1;
 }
 
 .prayer-name {
     font-size: 0.9rem;
     color: var(--text-secondary);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
 }
 
 .prayer-time-item:hover .prayer-name {
@@ -293,7 +396,7 @@ body {
 }
 
 .prayer-time {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
 }
 
@@ -304,6 +407,77 @@ body {
     color: white;
     border-radius: 0.5rem;
     font-weight: 500;
+}
+
+/* Islamic Calendar */
+.islamic-calendar {
+    background: var(--gradient-islamic);
+    color: white;
+    border: none;
+}
+
+.islamic-calendar .card-header h3 {
+    color: white;
+}
+
+.islamic-calendar .card-header h3 i {
+    color: var(--islamic-gold);
+}
+
+.calendar-content {
+    text-align: center;
+}
+
+.hijri-date {
+    margin-bottom: 1.5rem;
+}
+
+.hijri-day {
+    font-size: 3rem;
+    font-weight: 700;
+    display: block;
+    color: var(--islamic-gold);
+}
+
+.hijri-month {
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: block;
+    margin: 0.5rem 0;
+}
+
+.hijri-year {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.upcoming-events h4 {
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.events-list {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.event-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    backdrop-filter: blur(10px);
+}
+
+.event-date {
+    font-weight: 600;
+    color: var(--islamic-gold);
+}
+
+.event-name {
+    font-size: 0.9rem;
 }
 
 /* Quick Actions */
@@ -359,7 +533,7 @@ body {
 
 /* Verse Card */
 .verse-card {
-    background: linear-gradient(135deg, var(--islamic-green), #228B22);
+    background: var(--gradient-islamic);
     color: white;
     border: none;
 }
@@ -392,6 +566,185 @@ body {
     font-size: 0.9rem;
     opacity: 0.8;
     color: var(--islamic-gold);
+}
+
+/* Hadith Card */
+.hadith-card {
+    background: linear-gradient(135deg, #8B4513, #A0522D);
+    color: white;
+    border: none;
+}
+
+.hadith-card .card-header h3 {
+    color: white;
+}
+
+.hadith-card .card-header h3 i {
+    color: var(--islamic-gold);
+}
+
+.hadith-content {
+    text-align: center;
+}
+
+.hadith-text {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.hadith-reference {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    color: var(--islamic-gold);
+}
+
+/* Country Selection */
+.country-selection {
+    margin-bottom: 2rem;
+}
+
+.popular-countries,
+.all-countries {
+    margin-bottom: 2rem;
+}
+
+.popular-countries h4,
+.all-countries h4 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.countries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.country-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background: var(--surface);
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.country-card:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.country-flag {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.country-name {
+    font-weight: 500;
+    text-align: center;
+}
+
+.countries-list,
+.countries-modal-list {
+    display: grid;
+    gap: 0.5rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.country-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--surface);
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.country-item:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.country-flag {
+    font-size: 1.5rem;
+}
+
+.country-name {
+    flex: 1;
+    font-weight: 500;
+}
+
+.country-code {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.country-item:hover .country-code {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Prayer Detail Cards */
+.prayer-detail-card {
+    margin-bottom: 1rem;
+}
+
+.prayer-detail {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.prayer-detail .prayer-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.prayer-detail .prayer-info {
+    flex: 1;
+}
+
+.prayer-detail .prayer-info h3 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.prayer-detail .prayer-info .arabic-text {
+    margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.prayer-description {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.prayer-time-large {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-left: auto;
 }
 
 /* Search Bar */
@@ -485,6 +838,7 @@ body {
 .surah-item:hover {
     background: var(--primary-color);
     color: white;
+    transform: translateY(-1px);
 }
 
 .surah-number {
@@ -498,6 +852,7 @@ body {
     justify-content: center;
     font-weight: 600;
     margin-right: 1rem;
+    flex-shrink: 0;
 }
 
 .surah-item:hover .surah-number {
@@ -527,6 +882,7 @@ body {
     font-family: 'Amiri', serif;
     font-size: 1.2rem;
     color: var(--primary-color);
+    margin-left: 1rem;
 }
 
 .surah-item:hover .surah-arabic {
@@ -712,6 +1068,7 @@ body {
 .feature-item:hover {
     background: var(--primary-color);
     color: white;
+    transform: translateY(-1px);
 }
 
 .feature-item i {
@@ -828,7 +1185,7 @@ body {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    background: var(--gradient-primary);
     color: white;
     display: flex;
     flex-direction: column;
@@ -944,6 +1301,41 @@ body {
     opacity: 0.7;
 }
 
+/* Prayer Settings */
+.prayer-settings {
+    background: var(--surface);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border);
+    margin-top: 2rem;
+}
+
+.prayer-settings h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.setting-item {
+    margin-bottom: 1rem;
+}
+
+.setting-item label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.setting-item select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background: var(--background);
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .content {
@@ -955,8 +1347,26 @@ body {
         margin-bottom: 1rem;
     }
     
+    .welcome-card {
+        padding: 1.5rem;
+    }
+    
+    .welcome-card h2 {
+        font-size: 1.5rem;
+    }
+    
+    .welcome-stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
     .prayer-times-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .prayer-time-item {
+        flex-direction: column;
+        text-align: center;
         gap: 0.5rem;
     }
     
@@ -994,6 +1404,24 @@ body {
     .count-display {
         font-size: 3rem;
     }
+    
+    .countries-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .prayer-detail {
+        gap: 0.75rem;
+    }
+    
+    .prayer-detail .prayer-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .prayer-time-large {
+        font-size: 1.2rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1003,6 +1431,10 @@ body {
     
     .greeting h1 {
         font-size: 1.3rem;
+    }
+    
+    .welcome-stats {
+        grid-template-columns: 1fr;
     }
     
     .prayer-times-grid {
@@ -1032,6 +1464,20 @@ body {
         text-align: center;
         gap: 0.5rem;
     }
+    
+    .countries-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .prayer-detail {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .prayer-time-large {
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
 }
 
 /* Animations */
@@ -1044,10 +1490,6 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.page.active {
-    animation: fadeIn 0.3s ease;
 }
 
 /* Utility Classes */

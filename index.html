@@ -3,10 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sirate Mustaqeem - Islamic Companion</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Sirate Mustaqeem - Complete Islamic Companion | Prayer Times, Quran, Qibla Direction</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Sirate Mustaqeem is your complete Islamic companion featuring accurate prayer times for all countries, Holy Quran with translations, Qibla direction, digital Tasbih, and daily Islamic content. Free Islamic app for Muslims worldwide.">
+    <meta name="keywords" content="Islamic app, prayer times, Quran online, Qibla direction, Muslim prayer, Islamic calendar, Hadith, Duas, Tasbih, Islamic companion, Muslim app, prayer schedule, Islamic content">
+    <meta name="author" content="Sirate Mustaqeem">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Sirate Mustaqeem - Complete Islamic Companion">
+    <meta property="og:description" content="Your trusted Islamic companion with prayer times, Quran, Qibla direction, and more. Serving Muslims worldwide with accurate Islamic content.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://siratemustaqeem.com">
+    <meta property="og:image" content="https://siratemustaqeem.com/assets/banner.png">
+    <meta property="og:site_name" content="Sirate Mustaqeem">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sirate Mustaqeem - Complete Islamic Companion">
+    <meta name="twitter:description" content="Your trusted Islamic companion with prayer times, Quran, Qibla direction, and more.">
+    <meta name="twitter:image" content="https://siratemustaqeem.com/assets/banner.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://siratemustaqeem.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/core/svg/app_logo.svg">
+    <link rel="apple-touch-icon" href="assets/images/core/svg/app_logo.svg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Sirate Mustaqeem",
+        "description": "Complete Islamic companion with prayer times, Quran, Qibla direction, and Islamic content",
+        "url": "https://siratemustaqeem.com",
+        "applicationCategory": "Religious Application",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Sirate Mustaqeem"
+        }
+    }
+    </script>
 </head>
 <body>
     <div id="app">
@@ -57,10 +114,10 @@
                             <p id="current-date"></p>
                         </div>
                         <div class="header-actions">
-                            <button class="icon-btn" id="theme-toggle">
+                            <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">
                                 <i class="fas fa-moon"></i>
                             </button>
-                            <button class="icon-btn" id="notifications-btn">
+                            <button class="icon-btn" id="notifications-btn" aria-label="Notifications">
                                 <i class="fas fa-bell"></i>
                             </button>
                         </div>
@@ -68,41 +125,106 @@
                 </header>
 
                 <div class="content">
+                    <!-- Welcome Section -->
+                    <section class="welcome-section">
+                        <div class="welcome-card">
+                            <h2>Welcome to Sirate Mustaqeem</h2>
+                            <p>Your complete Islamic companion for daily worship, Quran reading, prayer times, and spiritual guidance. Join millions of Muslims worldwide in their journey of faith.</p>
+                            <div class="welcome-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">195+</span>
+                                    <span class="stat-label">Countries Supported</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">6,236</span>
+                                    <span class="stat-label">Quran Verses</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">24/7</span>
+                                    <span class="stat-label">Prayer Times</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                     <!-- Prayer Times Card -->
-                    <div class="card prayer-times-card">
+                    <section class="prayer-times-card card">
                         <div class="card-header">
-                            <h3><i class="fas fa-clock"></i> Prayer Times</h3>
-                            <span id="location-text">Getting location...</span>
+                            <h3><i class="fas fa-clock"></i> Today's Prayer Times</h3>
+                            <div class="location-info">
+                                <span id="location-text">Getting location...</span>
+                                <button class="change-location-btn" id="change-location-btn">
+                                    <i class="fas fa-map-marker-alt"></i> Change
+                                </button>
+                            </div>
                         </div>
                         <div class="prayer-times-grid" id="prayer-times-grid">
                             <div class="prayer-time-item">
-                                <div class="prayer-name">Fajr</div>
-                                <div class="prayer-time">--:--</div>
+                                <div class="prayer-icon"><i class="fas fa-sun"></i></div>
+                                <div class="prayer-info">
+                                    <div class="prayer-name">Fajr</div>
+                                    <div class="prayer-time">--:--</div>
+                                </div>
                             </div>
                             <div class="prayer-time-item">
-                                <div class="prayer-name">Dhuhr</div>
-                                <div class="prayer-time">--:--</div>
+                                <div class="prayer-icon"><i class="fas fa-sun"></i></div>
+                                <div class="prayer-info">
+                                    <div class="prayer-name">Dhuhr</div>
+                                    <div class="prayer-time">--:--</div>
+                                </div>
                             </div>
                             <div class="prayer-time-item">
-                                <div class="prayer-name">Asr</div>
-                                <div class="prayer-time">--:--</div>
+                                <div class="prayer-icon"><i class="fas fa-cloud-sun"></i></div>
+                                <div class="prayer-info">
+                                    <div class="prayer-name">Asr</div>
+                                    <div class="prayer-time">--:--</div>
+                                </div>
                             </div>
                             <div class="prayer-time-item">
-                                <div class="prayer-name">Maghrib</div>
-                                <div class="prayer-time">--:--</div>
+                                <div class="prayer-icon"><i class="fas fa-moon"></i></div>
+                                <div class="prayer-info">
+                                    <div class="prayer-name">Maghrib</div>
+                                    <div class="prayer-time">--:--</div>
+                                </div>
                             </div>
                             <div class="prayer-time-item">
-                                <div class="prayer-name">Isha</div>
-                                <div class="prayer-time">--:--</div>
+                                <div class="prayer-icon"><i class="fas fa-moon"></i></div>
+                                <div class="prayer-info">
+                                    <div class="prayer-name">Isha</div>
+                                    <div class="prayer-time">--:--</div>
+                                </div>
                             </div>
                         </div>
                         <div class="next-prayer" id="next-prayer">
-                            <span>Next Prayer: <strong>Fajr in 5h 30m</strong></span>
+                            <span>Next Prayer: <strong>Calculating...</strong></span>
                         </div>
-                    </div>
+                    </section>
+
+                    <!-- Islamic Calendar -->
+                    <section class="islamic-calendar card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-calendar-alt"></i> Islamic Calendar</h3>
+                        </div>
+                        <div class="calendar-content">
+                            <div class="hijri-date">
+                                <span class="hijri-day" id="hijri-day">--</span>
+                                <span class="hijri-month" id="hijri-month">Loading...</span>
+                                <span class="hijri-year" id="hijri-year">----</span>
+                            </div>
+                            <div class="upcoming-events">
+                                <h4>Upcoming Islamic Events</h4>
+                                <div class="events-list" id="events-list">
+                                    <div class="event-item">
+                                        <span class="event-date">15 Ramadan</span>
+                                        <span class="event-name">Laylat al-Qadr (Night of Power)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
                     <!-- Quick Actions -->
-                    <div class="quick-actions">
+                    <section class="quick-actions">
                         <h3>Quick Access</h3>
                         <div class="actions-grid">
                             <div class="action-item" data-action="quran">
@@ -130,10 +252,10 @@
                                 <span>Hadith</span>
                             </div>
                         </div>
-                    </div>
+                    </section>
 
                     <!-- Today's Verse -->
-                    <div class="card verse-card">
+                    <section class="card verse-card">
                         <div class="card-header">
                             <h3><i class="fas fa-quote-right"></i> Verse of the Day</h3>
                         </div>
@@ -141,6 +263,87 @@
                             <p class="arabic-text" id="daily-verse-arabic">وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا</p>
                             <p class="translation" id="daily-verse-translation">"And whoever fears Allah - He will make for him a way out."</p>
                             <p class="reference" id="daily-verse-reference">Quran 65:2</p>
+                        </div>
+                    </section>
+
+                    <!-- Daily Hadith -->
+                    <section class="card hadith-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-scroll"></i> Hadith of the Day</h3>
+                        </div>
+                        <div class="hadith-content">
+                            <p class="hadith-text" id="daily-hadith-text">"The best of people are those who benefit others."</p>
+                            <p class="hadith-reference" id="daily-hadith-reference">Prophet Muhammad (ﷺ) - Sahih Bukhari</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Prayer Page -->
+            <div id="prayer-page" class="page">
+                <header class="page-header">
+                    <h1><i class="fas fa-pray"></i> Prayer Times</h1>
+                    <div class="header-actions">
+                        <button class="icon-btn" id="location-btn" aria-label="Change location">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                        <button class="icon-btn" id="countries-btn" aria-label="Browse countries">
+                            <i class="fas fa-globe"></i>
+                        </button>
+                    </div>
+                </header>
+
+                <div class="content">
+                    <!-- Country Selection -->
+                    <div class="country-selection">
+                        <div class="search-bar">
+                            <input type="text" placeholder="Search countries..." id="country-search-input">
+                            <button><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="popular-countries">
+                            <h4>Popular Countries</h4>
+                            <div class="countries-grid" id="popular-countries-grid">
+                                <!-- Popular countries will be loaded here -->
+                            </div>
+                        </div>
+                        <div class="all-countries">
+                            <h4>All Countries</h4>
+                            <div class="countries-list" id="all-countries-list">
+                                <!-- All countries will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Current Location Info -->
+                    <div class="location-info">
+                        <p id="current-location">Getting your location...</p>
+                        <p id="current-date-prayer"></p>
+                    </div>
+
+                    <!-- Prayer Times Detailed -->
+                    <div class="prayer-times-detailed" id="prayer-times-detailed">
+                        <!-- Detailed prayer times will be loaded here -->
+                    </div>
+
+                    <!-- Prayer Settings -->
+                    <div class="prayer-settings">
+                        <h3>Prayer Settings</h3>
+                        <div class="setting-item">
+                            <label for="calculation-method">Calculation Method</label>
+                            <select id="calculation-method">
+                                <option value="1">University of Islamic Sciences, Karachi</option>
+                                <option value="2">Islamic Society of North America</option>
+                                <option value="3">Muslim World League</option>
+                                <option value="4">Umm Al-Qura University, Makkah</option>
+                                <option value="5">Egyptian General Authority of Survey</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label for="madhab">Madhab (Asr Calculation)</label>
+                            <select id="madhab">
+                                <option value="0">Shafi/Hanbali/Maliki</option>
+                                <option value="1">Hanafi</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -151,10 +354,10 @@
                 <header class="page-header">
                     <h1><i class="fas fa-book-open"></i> Holy Quran</h1>
                     <div class="header-actions">
-                        <button class="icon-btn" id="search-btn">
+                        <button class="icon-btn" id="search-btn" aria-label="Search Quran">
                             <i class="fas fa-search"></i>
                         </button>
-                        <button class="icon-btn" id="bookmark-btn">
+                        <button class="icon-btn" id="bookmark-btn" aria-label="Bookmarks">
                             <i class="fas fa-bookmark"></i>
                         </button>
                     </div>
@@ -193,47 +396,6 @@
                                     <small>Bookmark verses while reading</small>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Prayer Page -->
-            <div id="prayer-page" class="page">
-                <header class="page-header">
-                    <h1><i class="fas fa-pray"></i> Prayer Times</h1>
-                    <button class="icon-btn" id="location-btn">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </button>
-                </header>
-
-                <div class="content">
-                    <div class="location-info">
-                        <p id="current-location">Getting your location...</p>
-                        <p id="current-date-prayer"></p>
-                    </div>
-
-                    <div class="prayer-times-detailed" id="prayer-times-detailed">
-                        <!-- Detailed prayer times will be loaded here -->
-                    </div>
-
-                    <div class="prayer-settings">
-                        <h3>Prayer Settings</h3>
-                        <div class="setting-item">
-                            <label>Calculation Method</label>
-                            <select id="calculation-method">
-                                <option value="1">University of Islamic Sciences, Karachi</option>
-                                <option value="2">Islamic Society of North America</option>
-                                <option value="3">Muslim World League</option>
-                                <option value="4">Umm Al-Qura University, Makkah</option>
-                            </select>
-                        </div>
-                        <div class="setting-item">
-                            <label>Madhab</label>
-                            <select id="madhab">
-                                <option value="0">Shafi/Hanbali/Maliki</option>
-                                <option value="1">Hanafi</option>
-                            </select>
                         </div>
                     </div>
                 </div>
@@ -370,11 +532,31 @@
         </main>
 
         <!-- Modals -->
+        <!-- Country Selection Modal -->
+        <div id="country-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Select Country</h2>
+                    <button class="close-btn" aria-label="Close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search countries..." id="modal-country-search">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="countries-modal-list" id="countries-modal-list">
+                        <!-- Countries will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tasbih Modal -->
         <div id="tasbih-modal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
                     <h2>Digital Tasbih</h2>
-                    <button class="close-btn">&times;</button>
+                    <button class="close-btn" aria-label="Close">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="tasbih-container">
@@ -408,7 +590,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h2>Error</h2>
-                    <button class="close-btn">&times;</button>
+                    <button class="close-btn" aria-label="Close">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="error-content">

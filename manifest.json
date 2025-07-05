@@ -1,0 +1,73 @@
+{
+    "name": "Sirate Mustaqeem - Islamic Companion",
+    "short_name": "Sirate Mustaqeem",
+    "description": "Complete Islamic companion with prayer times, Quran, Qibla direction, and Islamic content",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0b6ab3",
+    "theme_color": "#0b6ab3",
+    "orientation": "portrait",
+    "scope": "/",
+    "lang": "en",
+    "categories": ["lifestyle", "education", "utilities"],
+    "icons": [
+        {
+            "src": "assets/images/core/svg/app_logo.svg",
+            "sizes": "192x192",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "assets/images/core/svg/app_logo.svg",
+            "sizes": "512x512",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "assets/banner.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "platform": "wide"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Prayer Times",
+            "short_name": "Prayer",
+            "description": "View today's prayer times",
+            "url": "/?page=prayer",
+            "icons": [
+                {
+                    "src": "assets/images/praying_time/svg/morning.svg",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Quran",
+            "short_name": "Quran",
+            "description": "Read the Holy Quran",
+            "url": "/?page=quran",
+            "icons": [
+                {
+                    "src": "assets/images/collection_icon/svg/quran.svg",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Qibla",
+            "short_name": "Qibla",
+            "description": "Find Qibla direction",
+            "url": "/?page=qibla",
+            "icons": [
+                {
+                    "src": "assets/images/collection_icon/svg/kiblat.svg",
+                    "sizes": "96x96"
+                }
+            ]
+        }
+    ]
+}
