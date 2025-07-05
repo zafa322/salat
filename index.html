@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sirate Mustaqeem - Islamic Companion</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Loading Screen -->
+        <div id="loading-screen" class="loading-screen">
+            <div class="loading-content">
+                <div class="app-logo">
+                    <i class="fas fa-mosque"></i>
+                </div>
+                <h1>Sirate Mustaqeem</h1>
+                <div class="loading-spinner"></div>
+                <p>Loading Islamic Companion...</p>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="bottom-nav" id="bottom-nav">
+            <div class="nav-item active" data-page="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </div>
+            <div class="nav-item" data-page="quran">
+                <i class="fas fa-book-open"></i>
+                <span>Quran</span>
+            </div>
+            <div class="nav-item" data-page="prayer">
+                <i class="fas fa-pray"></i>
+                <span>Prayer</span>
+            </div>
+            <div class="nav-item" data-page="qibla">
+                <i class="fas fa-compass"></i>
+                <span>Qibla</span>
+            </div>
+            <div class="nav-item" data-page="more">
+                <i class="fas fa-ellipsis-h"></i>
+                <span>More</span>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home Page -->
+            <div id="home-page" class="page active">
+                <header class="page-header">
+                    <div class="header-content">
+                        <div class="greeting">
+                            <h1 id="greeting-text">Assalamu Alaikum</h1>
+                            <p id="current-date"></p>
+                        </div>
+                        <div class="header-actions">
+                            <button class="icon-btn" id="theme-toggle">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                            <button class="icon-btn" id="notifications-btn">
+                                <i class="fas fa-bell"></i>
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="content">
+                    <!-- Prayer Times Card -->
+                    <div class="card prayer-times-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-clock"></i> Prayer Times</h3>
+                            <span id="location-text">Getting location...</span>
+                        </div>
+                        <div class="prayer-times-grid" id="prayer-times-grid">
+                            <div class="prayer-time-item">
+                                <div class="prayer-name">Fajr</div>
+                                <div class="prayer-time">--:--</div>
+                            </div>
+                            <div class="prayer-time-item">
+                                <div class="prayer-name">Dhuhr</div>
+                                <div class="prayer-time">--:--</div>
+                            </div>
+                            <div class="prayer-time-item">
+                                <div class="prayer-name">Asr</div>
+                                <div class="prayer-time">--:--</div>
+                            </div>
+                            <div class="prayer-time-item">
+                                <div class="prayer-name">Maghrib</div>
+                                <div class="prayer-time">--:--</div>
+                            </div>
+                            <div class="prayer-time-item">
+                                <div class="prayer-name">Isha</div>
+                                <div class="prayer-time">--:--</div>
+                            </div>
+                        </div>
+                        <div class="next-prayer" id="next-prayer">
+                            <span>Next Prayer: <strong>Fajr in 5h 30m</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="quick-actions">
+                        <h3>Quick Access</h3>
+                        <div class="actions-grid">
+                            <div class="action-item" data-action="quran">
+                                <i class="fas fa-book-quran"></i>
+                                <span>Read Quran</span>
+                            </div>
+                            <div class="action-item" data-action="duas">
+                                <i class="fas fa-hands-praying"></i>
+                                <span>Daily Duas</span>
+                            </div>
+                            <div class="action-item" data-action="qibla">
+                                <i class="fas fa-compass"></i>
+                                <span>Qibla Direction</span>
+                            </div>
+                            <div class="action-item" data-action="tasbih">
+                                <i class="fas fa-circle-dot"></i>
+                                <span>Digital Tasbih</span>
+                            </div>
+                            <div class="action-item" data-action="names">
+                                <i class="fas fa-star-and-crescent"></i>
+                                <span>99 Names</span>
+                            </div>
+                            <div class="action-item" data-action="hadith">
+                                <i class="fas fa-scroll"></i>
+                                <span>Hadith</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Today's Verse -->
+                    <div class="card verse-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-quote-right"></i> Verse of the Day</h3>
+                        </div>
+                        <div class="verse-content">
+                            <p class="arabic-text" id="daily-verse-arabic">وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا</p>
+                            <p class="translation" id="daily-verse-translation">"And whoever fears Allah - He will make for him a way out."</p>
+                            <p class="reference" id="daily-verse-reference">Quran 65:2</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quran Page -->
+            <div id="quran-page" class="page">
+                <header class="page-header">
+                    <h1><i class="fas fa-book-open"></i> Holy Quran</h1>
+                    <div class="header-actions">
+                        <button class="icon-btn" id="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <button class="icon-btn" id="bookmark-btn">
+                            <i class="fas fa-bookmark"></i>
+                        </button>
+                    </div>
+                </header>
+
+                <div class="content">
+                    <div class="search-bar" id="quran-search">
+                        <input type="text" placeholder="Search Quran..." id="quran-search-input">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+
+                    <div class="quran-navigation">
+                        <div class="nav-tabs">
+                            <button class="tab-btn active" data-tab="surahs">Surahs</button>
+                            <button class="tab-btn" data-tab="juz">Juz</button>
+                            <button class="tab-btn" data-tab="bookmarks">Bookmarks</button>
+                        </div>
+                    </div>
+
+                    <div class="tab-content">
+                        <div id="surahs-tab" class="tab-pane active">
+                            <div class="surahs-list" id="surahs-list">
+                                <!-- Surahs will be loaded here -->
+                            </div>
+                        </div>
+                        <div id="juz-tab" class="tab-pane">
+                            <div class="juz-list" id="juz-list">
+                                <!-- Juz will be loaded here -->
+                            </div>
+                        </div>
+                        <div id="bookmarks-tab" class="tab-pane">
+                            <div class="bookmarks-list" id="bookmarks-list">
+                                <div class="empty-state">
+                                    <i class="fas fa-bookmark"></i>
+                                    <p>No bookmarks yet</p>
+                                    <small>Bookmark verses while reading</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prayer Page -->
+            <div id="prayer-page" class="page">
+                <header class="page-header">
+                    <h1><i class="fas fa-pray"></i> Prayer Times</h1>
+                    <button class="icon-btn" id="location-btn">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </button>
+                </header>
+
+                <div class="content">
+                    <div class="location-info">
+                        <p id="current-location">Getting your location...</p>
+                        <p id="current-date-prayer"></p>
+                    </div>
+
+                    <div class="prayer-times-detailed" id="prayer-times-detailed">
+                        <!-- Detailed prayer times will be loaded here -->
+                    </div>
+
+                    <div class="prayer-settings">
+                        <h3>Prayer Settings</h3>
+                        <div class="setting-item">
+                            <label>Calculation Method</label>
+                            <select id="calculation-method">
+                                <option value="1">University of Islamic Sciences, Karachi</option>
+                                <option value="2">Islamic Society of North America</option>
+                                <option value="3">Muslim World League</option>
+                                <option value="4">Umm Al-Qura University, Makkah</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label>Madhab</label>
+                            <select id="madhab">
+                                <option value="0">Shafi/Hanbali/Maliki</option>
+                                <option value="1">Hanafi</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Qibla Page -->
+            <div id="qibla-page" class="page">
+                <header class="page-header">
+                    <h1><i class="fas fa-compass"></i> Qibla Direction</h1>
+                </header>
+
+                <div class="content">
+                    <div class="qibla-container">
+                        <div class="qibla-compass" id="qibla-compass">
+                            <div class="compass-outer">
+                                <div class="compass-inner" id="compass-inner">
+                                    <div class="compass-needle" id="compass-needle">
+                                        <div class="needle-north"></div>
+                                        <div class="needle-south"></div>
+                                    </div>
+                                    <div class="qibla-indicator" id="qibla-indicator">
+                                        <i class="fas fa-kaaba"></i>
+                                    </div>
+                                </div>
+                                <div class="compass-directions">
+                                    <span class="direction north">N</span>
+                                    <span class="direction east">E</span>
+                                    <span class="direction south">S</span>
+                                    <span class="direction west">W</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="qibla-info">
+                            <div class="info-item">
+                                <span class="label">Qibla Direction:</span>
+                                <span class="value" id="qibla-degree">--°</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Distance to Kaaba:</span>
+                                <span class="value" id="kaaba-distance">-- km</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Your Location:</span>
+                                <span class="value" id="user-location">Getting location...</span>
+                            </div>
+                        </div>
+
+                        <div class="qibla-instructions">
+                            <p><i class="fas fa-info-circle"></i> Hold your device flat and point the needle towards the Kaaba icon</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More Page -->
+            <div id="more-page" class="page">
+                <header class="page-header">
+                    <h1><i class="fas fa-ellipsis-h"></i> More Features</h1>
+                </header>
+
+                <div class="content">
+                    <div class="features-grid">
+                        <div class="feature-category">
+                            <h3>Islamic Tools</h3>
+                            <div class="feature-items">
+                                <div class="feature-item" data-feature="tasbih">
+                                    <i class="fas fa-circle-dot"></i>
+                                    <div>
+                                        <h4>Digital Tasbih</h4>
+                                        <p>Count your dhikr</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item" data-feature="names">
+                                    <i class="fas fa-star-and-crescent"></i>
+                                    <div>
+                                        <h4>99 Names of Allah</h4>
+                                        <p>Learn the beautiful names</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item" data-feature="duas">
+                                    <i class="fas fa-hands-praying"></i>
+                                    <div>
+                                        <h4>Daily Duas</h4>
+                                        <p>Essential supplications</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item" data-feature="hadith">
+                                    <i class="fas fa-scroll"></i>
+                                    <div>
+                                        <h4>Hadith Collection</h4>
+                                        <p>Authentic sayings</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-category">
+                            <h3>Settings</h3>
+                            <div class="feature-items">
+                                <div class="feature-item" data-feature="notifications">
+                                    <i class="fas fa-bell"></i>
+                                    <div>
+                                        <h4>Notifications</h4>
+                                        <p>Prayer reminders</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item" data-feature="theme">
+                                    <i class="fas fa-palette"></i>
+                                    <div>
+                                        <h4>Theme Settings</h4>
+                                        <p>Customize appearance</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item" data-feature="language">
+                                    <i class="fas fa-language"></i>
+                                    <div>
+                                        <h4>Language</h4>
+                                        <p>Change app language</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item" data-feature="about">
+                                    <i class="fas fa-info-circle"></i>
+                                    <div>
+                                        <h4>About</h4>
+                                        <p>App information</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Modals -->
+        <div id="tasbih-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Digital Tasbih</h2>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="tasbih-container">
+                        <div class="tasbih-counter">
+                            <div class="count-display" id="tasbih-count">0</div>
+                            <div class="count-label">Count</div>
+                        </div>
+                        <div class="tasbih-button" id="tasbih-btn">
+                            <i class="fas fa-hand-point-up"></i>
+                            <span>Tap to Count</span>
+                        </div>
+                        <div class="tasbih-controls">
+                            <button id="reset-tasbih">Reset</button>
+                            <button id="set-target">Set Target</button>
+                        </div>
+                        <div class="dhikr-suggestions">
+                            <h4>Common Dhikr:</h4>
+                            <div class="dhikr-items">
+                                <button class="dhikr-btn">سُبْحَانَ اللهِ</button>
+                                <button class="dhikr-btn">الْحَمْدُ لِلَّهِ</button>
+                                <button class="dhikr-btn">اللهُ أَكْبَرُ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Modal -->
+        <div id="error-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Error</h2>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="error-content">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p id="error-message">An error occurred. Please try again.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
