@@ -1,0 +1,25 @@
+{
+  "name": "sirate-mustaqeem",
+  "version": "1.0.0",
+  "description": "Islamic Companion Web Application",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server . -p 3000 -o",
+    "start": "npx http-server . -p 3000",
+    "build": "echo 'No build process needed for static files'",
+    "serve": "npx http-server . -p 8080"
+  },
+  "keywords": [
+    "islamic",
+    "quran",
+    "prayer",
+    "qibla",
+    "muslim",
+    "web-app"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
